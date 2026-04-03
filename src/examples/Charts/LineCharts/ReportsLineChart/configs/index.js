@@ -1,27 +1,30 @@
 /**
-=========================================================
-* Material Dashboard 2 React - v2.1.0
-=========================================================
+ =========================================================
+ * Material Dashboard 2 React - v2.1.0
+ =========================================================
 
-* Product Page: https://www.creative-tim.com/product/nextjs-material-dashboard-pro
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+ * Product Page: https://www.creative-tim.com/product/nextjs-material-dashboard-pro
+ * Copyright 2023 Creative Tim (https://www.creative-tim.com)
 
-Coded by www.creative-tim.com
+ Coded by www.creative-tim.com
 
  =========================================================
 
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
 
-function configs(labels, datasets) {
+function configs(labels, datasets, configs) {
+  var aDate = new Date();
+  var minus = aDate.setMonth(aDate.getMonth() - 18);
+
   return {
     data: {
       labels,
       datasets: [
         {
           label: datasets.label,
-          tension: 0,
-          pointRadius: 5,
+          tension: 0.3,
+          pointRadius: 3,
           pointBorderColor: "transparent",
           pointBackgroundColor: "rgba(255, 255, 255, .8)",
           borderColor: "rgba(255, 255, 255, .8)",
@@ -47,6 +50,7 @@ function configs(labels, datasets) {
       },
       scales: {
         y: {
+          min: 1000,
           grid: {
             drawBorder: false,
             display: true,
@@ -69,6 +73,12 @@ function configs(labels, datasets) {
           },
         },
         x: {
+          min: minus,
+          type: "time",
+          time: {
+            unit: "month",
+          },
+          offset: false,
           grid: {
             drawBorder: false,
             display: false,
@@ -80,6 +90,7 @@ function configs(labels, datasets) {
             display: true,
             color: "#f8f9fa",
             padding: 10,
+            type: "time",
             font: {
               size: 14,
               weight: 300,
