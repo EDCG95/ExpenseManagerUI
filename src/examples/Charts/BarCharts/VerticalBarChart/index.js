@@ -1,17 +1,17 @@
 /**
-=========================================================
-* Material Dashboard 2  React - v2.2.0
-=========================================================
+ =========================================================
+ * Material Dashboard 2  React - v2.2.0
+ =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+ * Product Page: https://www.creative-tim.com/product/material-dashboard-react
+ * Copyright 2023 Creative Tim (https://www.creative-tim.com)
 
-Coded by www.creative-tim.com
+ Coded by www.creative-tim.com
 
  =========================================================
 
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
 
 import { useMemo } from "react";
 
@@ -21,13 +21,13 @@ import PropTypes from "prop-types";
 // react-chartjs-2 components
 import { Bar } from "react-chartjs-2";
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
   BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
   Title,
   Tooltip,
-  Legend,
 } from "chart.js";
 
 // @mui material components
@@ -47,8 +47,8 @@ import colors from "assets/theme/base/colors";
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function VerticalBarChart({ icon, title, description, height, chart }) {
-  const chartDatasets = chart.datasets
-    ? chart.datasets.map((dataset) => ({
+  const chartDatasets = chart?.datasets
+    ? chart?.datasets?.map((dataset) => ({
         ...dataset,
         weight: 5,
         borderWidth: 0,
