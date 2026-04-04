@@ -1,0 +1,4 @@
+export const QUERY_KEY = {
+  GET_DEBT_TYPE: "GET_DEBT_TYPES",
+  GET_WAGES: "GET_WAGES",
+};

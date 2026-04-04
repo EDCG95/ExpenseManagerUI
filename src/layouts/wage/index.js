@@ -54,10 +54,11 @@ import { AddWageForm } from "./components/AddWageForm";
 import { getWage } from "../../api/user";
 import { useQuery } from "@tanstack/react-query";
 import formattedLineChartData from "../../utils/charts/formattedLineChartData";
+import { QUERY_KEY } from "../../utils/consts/queryKeys";
 
 function Overview() {
   const { data: wage } = useQuery({
-    queryKey: ["GET_WAGES"],
+    queryKey: [QUERY_KEY.GET_WAGES],
     queryFn: async () => formattedLineChartData(await getWage()),
   });
 
