@@ -4,15 +4,15 @@ import MDButton from "../../../../components/MDButton";
 import { addDebt } from "../../../../api/user";
 import MDTypography from "../../../../components/MDTypography";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { QUERY_KEY } from "../../../../utils/consts/queryKeys";
 
 export function AddDebtTypeForm() {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: (e) => addDebt(e),
-    onSuccess: () => {
-      debugger;
-      queryClient.invalidateQueries();
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: [QUERY_KEY.GET_DEBT_TYPE] });
     },
   });
 

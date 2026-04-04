@@ -33,12 +33,13 @@ import { getWage } from "../../api/user";
 // Dashboard components
 import { useQuery } from "@tanstack/react-query";
 import formattedLineChartData from "../../utils/charts/formattedLineChartData";
+import { QUERY_KEY } from "../../utils/consts/queryKeys";
 
 function Dashboard() {
   const { sales, salary } = reportsLineChartData;
 
   const { data: wages } = useQuery({
-    queryKey: ["GET_WAGES"],
+    queryKey: [QUERY_KEY.GET_WAGES],
     queryFn: async () => formattedLineChartData(await getWage()),
   });
 

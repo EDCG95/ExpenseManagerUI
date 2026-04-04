@@ -1,5 +1,5 @@
 import { apiClient } from "./client";
-import { ENDPOINT } from "../utils/ENDPOINT";
+import { ENDPOINT } from "../utils/consts/endpoints";
 
 export async function getWage() {
   const response = await apiClient.get(ENDPOINT.WAGE);

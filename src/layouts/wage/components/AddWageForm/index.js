@@ -4,16 +4,15 @@ import MDButton from "../../../../components/MDButton";
 import { addWage } from "../../../../api/user";
 import MDTypography from "../../../../components/MDTypography";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { QUERY_KEY } from "../../../../utils/consts/queryKeys";
 
 export function AddWageForm() {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: (e) => addWage(e),
-    onSuccess: () => {
-      console.log("mutation success");
-      debugger;
-      queryClient.invalidateQueries();
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: [QUERY_KEY.GET_WAGES] });
     },
   });
 
